@@ -1,0 +1,908 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="JaneMED Surgical India: gender-affirming, facial, breast, body and hair surgery in Mumbai, with coordinated support for international patients.">
+<link rel="icon" href="assets/favicon.png">
+<title>JaneMED Surgical India</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Figtree:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: editorial, one idea per band; calm ivory ground, teal brand, clay for actions only. Sticky header + mobile action bar. */
+:root{
+  --bg:#FFFFFF; --surface:#F6F9F8; --ink:#1F2326; --muted:#5D6461; --line:#E4E9E8;
+  --brand:#2F6F6A; --brand-soft:#E9F2F0; --accent:#C8775A; --accent-ink:#FFFFFF; --accent-hover:#B4664A;
+  --deep:#F6F9F8; --deep-ink:#1F2326; --deep-muted:#5D6461;
+  --f-display:"Newsreader", Georgia, "Times New Roman", serif;
+  --f-body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --r:14px; --r-sm:10px; --wrap:1180px;
+  --gut-l:max(16px, env(safe-area-inset-left, 0px)); --gut-r:max(16px, env(safe-area-inset-right, 0px));
+}
+/* Single white theme by request: no dark variant. */
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+a{color:inherit}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;letter-spacing:-.01em;text-wrap:balance;margin:0;line-height:1.12}
+h1{font-size:clamp(2.2rem,4.6vw,3.6rem)}
+h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+h3{font-size:1.35rem;line-height:1.25}
+h4{font-family:var(--f-body);font-size:1rem;font-weight:600;margin:0}
+p{margin:0}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--gut-l);padding-right:var(--gut-r)}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.lede{font-size:1.15rem;color:var(--muted);max-width:60ch}
+.muted{color:var(--muted)}
+.small{font-size:.88rem}
+.stack{display:flex;flex-direction:column;gap:14px}
+.stack-lg{display:flex;flex-direction:column;gap:28px}
+:focus-visible{outline:2px solid var(--brand);outline-offset:3px;border-radius:6px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:600 .95rem/1 var(--f-body);padding:14px 22px;border-radius:999px;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.btn-primary{background:var(--accent);color:var(--accent-ink)}
+.btn-primary:hover{background:var(--accent-hover)}
+.btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-ghost:hover{background:var(--ink);color:var(--bg)}
+.btn-light{background:var(--accent);color:var(--accent-ink)}
+.btn-light:hover{background:var(--accent-hover)}
+.btn-sm{padding:10px 16px;font-size:.86rem}
+.btn-row{display:flex;flex-wrap:wrap;gap:12px}
+.link{color:var(--brand);font-weight:600;text-decoration:none;background:none;border:0;padding:0;font:600 .95rem var(--f-body);cursor:pointer}
+.link:hover{text-decoration:underline}
+
+/* International bar + header */
+.intl{background:var(--brand);color:#FFFFFF;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase}
+.intl .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:9px}
+.intl a{text-decoration:none;color:#FFFFFF}
+.intl .r{display:flex;gap:18px}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.hbar{display:flex;align-items:center;gap:28px;padding-block:12px}
+.logo{display:flex;align-items:center;flex-shrink:0;background:#fff;border-radius:10px;padding:4px 8px}
+.logo img{height:40px;width:auto}
+nav.main{display:flex;gap:4px;margin-left:auto}
+.navbtn{font:500 .95rem var(--f-body);background:none;border:0;color:var(--ink);padding:10px 12px;border-radius:8px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.navbtn:hover,.navbtn[aria-expanded="true"]{background:var(--brand-soft)}
+.navbtn svg{width:10px;height:10px;transition:transform .2s}
+.navbtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.burger{display:none;margin-left:auto;background:none;border:1px solid var(--line);border-radius:10px;padding:10px;cursor:pointer;color:var(--ink)}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 24px 40px -24px rgba(20,30,28,.25)}
+.mega .wrap{display:grid;grid-template-columns:repeat(5,1fr) 1.2fr;gap:28px;padding-block:28px 32px}
+.mega.cols4 .wrap{grid-template-columns:repeat(3,1fr) 1.2fr}
+.mega h4{margin-bottom:10px}
+.mega h4 a{text-decoration:none}
+.mega ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.mega li a{text-decoration:none;color:var(--muted);font-size:.92rem}
+.mega li a:hover{color:var(--brand)}
+.helper{background:var(--bg);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px}
+.helper p{font-size:.9rem;color:var(--muted)}
+
+/* Mobile drawer */
+.drawer{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 14px) var(--gut-r) 120px var(--gut-l)}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.drawer details{border-bottom:1px solid var(--line)}
+.drawer summary{list-style:none;cursor:pointer;padding:16px 0;font-family:var(--f-display);font-size:1.4rem;display:flex;justify-content:space-between}
+.drawer summary::-webkit-details-marker{display:none}
+.drawer details[open] summary span{transform:rotate(45deg)}
+.drawer summary span{transition:transform .2s;font-family:var(--f-body)}
+.drawer ul{list-style:none;padding:0 0 16px;margin:0;display:flex;flex-direction:column;gap:10px}
+.drawer ul a{text-decoration:none;color:var(--muted)}
+
+/* Sticky mobile action bar */
+.actionbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:55;background:var(--surface);border-top:1px solid var(--line);padding:10px var(--gut-r) calc(10px + env(safe-area-inset-bottom,0px)) var(--gut-l);gap:10px}
+.actionbar .btn{flex:1}
+
+/* Sections */
+section.band{padding-block:clamp(56px,8vw,96px)}
+section.band.tight{padding-block:clamp(40px,5vw,64px)}
+.band.alt{background:var(--surface)}
+.band.deep{background:var(--deep);color:var(--deep-ink)}
+.band.deep .eyebrow{color:var(--deep-muted)}
+.band.deep .muted,.band.deep .lede{color:var(--deep-muted)}
+.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:36px}
+.sec-head .stack{max-width:680px}
+.crumbs{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:flex;gap:8px;flex-wrap:wrap}
+.crumbs a{color:var(--brand);text-decoration:none}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(40px,6vw,80px)}
+.hero h1 em{font-style:italic;color:var(--brand)}
+.hero-media{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;max-width:100%;background:var(--brand-soft)}
+.hero-media img{width:100%;height:100%;object-fit:cover}
+.hero-tag{position:absolute;left:16px;bottom:16px;right:16px;background:var(--surface);border-radius:var(--r-sm);padding:14px 16px;display:flex;gap:12px;align-items:center;font-size:.9rem}
+.hero-tag b{font-family:var(--f-display);font-weight:500;font-size:1.05rem}
+.dot{width:10px;height:10px;border-radius:50%;background:var(--brand);flex-shrink:0;box-shadow:0 0 0 5px var(--brand-soft)}
+.page-hero{padding-block:clamp(40px,6vw,72px) clamp(32px,4vw,48px);display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,5vw,56px);align-items:end}
+.page-hero.solo{grid-template-columns:1fr}
+.page-hero .ph-img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;max-width:100%}
+.page-hero .ph-img img{width:100%;height:100%;object-fit:cover}
+
+/* Trust strip */
+.trust{border-block:1px solid var(--line);background:var(--surface)}
+.trust .wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:0}
+.trust div{padding:20px 16px;font-size:.92rem;font-weight:500;display:flex;gap:10px;align-items:center;border-left:1px solid var(--line)}
+.trust div:first-child{border-left:0;padding-left:0}
+.trust svg{width:18px;height:18px;color:var(--brand);flex-shrink:0}
+
+/* Grids & cards */
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g5{grid-template-columns:repeat(5,minmax(0,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.band.alt .card{background:var(--bg)}
+.cat{text-decoration:none;display:flex;flex-direction:column;gap:12px;min-width:0}
+.cat .img{border-radius:var(--r);overflow:hidden;aspect-ratio:4/5;background:var(--brand-soft)}
+.cat .img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat:hover .img img{transform:scale(1.04)}
+.cat h3{font-size:1.3rem}
+.cat p{font-size:.88rem;color:var(--muted)}
+.cat .go{font-weight:600;color:var(--brand);font-size:.9rem}
+.why{display:flex;flex-direction:column;gap:10px;padding-top:18px;border-top:2px solid var(--brand)}
+.why h4{font-size:1.02rem}
+.why p{font-size:.92rem;color:var(--muted)}
+
+/* Journey steps */
+.steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;position:relative}
+.steps::before{content:"";position:absolute;top:21px;left:22px;right:22px;height:1.5px;background:repeating-linear-gradient(90deg,var(--brand) 0 6px,transparent 6px 12px)}
+.step{position:relative;display:flex;flex-direction:column;gap:10px;padding-right:12px}
+.num{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--brand);background:var(--bg);color:var(--brand);display:grid;place-items:center;font-family:var(--f-mono);font-size:.82rem;position:relative}
+.band.alt .num{background:var(--surface)}
+.step h4{font-size:.98rem}
+.step p{font-size:.86rem;color:var(--muted)}
+
+/* Timeline (10 steps, expandable) */
+.tl{display:flex;flex-direction:column;border-left:1.5px dashed var(--brand);margin-left:21px}
+.tl details{position:relative;padding:0 0 4px 36px}
+.tl summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:12px 0;margin-left:-58px}
+.tl summary::-webkit-details-marker{display:none}
+.tl summary .num{flex-shrink:0}
+.tl summary h4{font-size:1.08rem;flex:1}
+.tl summary .pm{font-size:1.3rem;color:var(--muted);transition:transform .2s}
+.tl details[open] .pm{transform:rotate(45deg)}
+.tl .body{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:4px 0 22px}
+.tl .body div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:14px 16px;font-size:.9rem;min-width:0}
+.tl .body b{display:block;font-family:var(--f-mono);font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--brand);margin-bottom:4px}
+
+/* Phase checklist */
+.phase h4{font-family:var(--f-mono);font-weight:500;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+.checks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.checks li{display:flex;gap:10px;align-items:baseline;font-size:.95rem}
+.checks li::before{content:"";width:9px;height:9px;border:1.5px solid var(--brand);border-radius:50%;flex-shrink:0;transform:translateY(-1px)}
+
+/* Lists */
+.ticks{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.ticks li{padding-left:22px;position:relative}
+.ticks li::before{content:"";position:absolute;left:0;top:.62em;width:12px;height:1.5px;background:var(--accent)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px;font-size:.88rem;text-decoration:none}
+a.pill:hover{border-color:var(--brand);color:var(--brand)}
+.pill.soon{color:var(--muted)}
+.tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* Proc tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-sm);padding:16px;display:flex;flex-direction:column;gap:6px;text-decoration:none;min-width:0}
+a.tile:hover{border-color:var(--brand)}
+.tile h4{font-size:.98rem}
+.tile .tag{margin-top:auto}
+a.tile .tag{color:var(--brand)}
+
+/* Surgeons, hospitals */
+.portrait{aspect-ratio:4/5;border-radius:var(--r-sm);background:var(--brand-soft);display:grid;place-items:center;color:var(--brand);font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;max-width:100%}
+.hosp{display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:start}
+.hosp .logo-box{background:#fff;border:1px solid var(--line);border-radius:var(--r-sm);aspect-ratio:300/190;overflow:hidden;max-width:100%}
+.hosp .logo-box img{width:100%;height:100%;object-fit:contain}
+.facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px}
+.facts div{border-top:1px solid var(--line);padding-top:8px;font-size:.92rem;min-width:0}
+.facts b{display:block;font-family:var(--f-mono);font-weight:500;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.tbc{color:var(--muted);font-style:italic}
+
+/* Results */
+.case{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.case .img{aspect-ratio:16/10;overflow:hidden;background:var(--brand-soft);max-width:100%}
+.case .img img{width:100%;height:100%;object-fit:cover}
+.case .meta{padding:18px 20px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.case .meta div{font-size:.9rem;min-width:0}
+.case .meta b{display:block;font-family:var(--f-mono);font-weight:500;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.disclaimer{font-size:.82rem;color:var(--muted);font-style:italic}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.filters button{font:500 .9rem var(--f-body);border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:8px 16px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+
+/* Testimonials */
+.quote{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:flex;flex-direction:column;gap:18px;min-width:0}
+.band.alt .quote{background:var(--bg)}
+.quote blockquote{margin:0;font-family:var(--f-display);font-size:1.22rem;line-height:1.4}
+.who{display:flex;gap:12px;align-items:center;margin-top:auto}
+.who img{width:44px;height:44px;border-radius:50%;object-fit:cover}
+.who b{display:block;font-weight:600}
+.who span{font-size:.82rem;color:var(--muted)}
+
+/* FAQ */
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;padding:18px 0;display:flex;justify-content:space-between;gap:16px;font-weight:600;font-size:1.02rem}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary span{color:var(--brand);font-size:1.3rem;line-height:1;transition:transform .2s}
+.faq details[open] summary span{transform:rotate(45deg)}
+.faq .a{padding:0 0 20px;color:var(--muted);max-width:68ch}
+.faq .a a{color:var(--brand)}
+
+/* CTA banner */
+.cta{background:var(--brand-soft);color:var(--ink);border:1px solid var(--line);border-radius:var(--r);padding:clamp(32px,5vw,56px);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.cta p{color:var(--deep-muted)}
+.cta h2{font-size:clamp(1.6rem,2.8vw,2.3rem)}
+
+/* Procedure page (template B) */
+.proc{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px;align-items:start}
+.toc{position:sticky;top:110px;display:flex;flex-direction:column;gap:8px}
+.toc a{text-decoration:none;color:var(--muted);font-size:.92rem;padding:4px 0 4px 12px;border-left:2px solid var(--line)}
+.toc a:hover{color:var(--brand);border-left-color:var(--brand)}
+.proc section{padding-block:28px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:14px;max-width:72ch}
+.proc section:first-child{border-top:0;padding-top:0}
+.note{background:var(--brand-soft);border-radius:var(--r-sm);padding:16px 18px;font-size:.93rem}
+
+/* Form */
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,4vw,36px);display:flex;flex-direction:column;gap:26px}
+.fgroup{display:flex;flex-direction:column;gap:16px;padding-top:22px;border-top:1px solid var(--line)}
+.fgroup:first-of-type{border-top:0;padding-top:0}
+.frow{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.field label,.flabel{font-weight:600;font-size:.9rem}
+.field input,.field select,.field textarea{font:400 1rem var(--f-body);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid var(--brand);outline-offset:0;border-color:transparent}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips input{position:absolute;opacity:0;pointer-events:none}
+.chips label{border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer;font-size:.92rem;background:var(--bg)}
+.chips input:checked+label{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.chips input:focus-visible+label{outline:2px solid var(--brand);outline-offset:2px}
+.drop{border:1.5px dashed var(--line);border-radius:var(--r-sm);padding:22px;text-align:center;color:var(--muted);font-size:.9rem;background:var(--bg);cursor:pointer;display:block}
+.consent{display:flex;gap:10px;align-items:flex-start;font-size:.9rem;color:var(--muted)}
+.consent input{margin-top:4px;accent-color:var(--brand)}
+.err{color:#B4442B;font-size:.85rem}
+.done{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:36px;display:flex;flex-direction:column;gap:14px}
+
+/* Contact block */
+.copyline{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.copyline code{font-family:var(--f-mono);font-size:.92rem;background:var(--brand-soft);padding:4px 10px;border-radius:6px;user-select:all}
+.copybtn{font:500 .8rem var(--f-body);background:none;border:1px solid var(--line);border-radius:999px;padding:4px 10px;cursor:pointer;color:var(--muted)}
+
+/* Footer */
+footer.site{background:var(--surface);color:var(--ink);border-top:1px solid var(--line);padding-block:64px 32px}
+footer .fgrid{display:grid;grid-template-columns:1.4fr repeat(5,1fr);gap:28px}
+footer h4{font-family:var(--f-mono);font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--deep-muted);margin-bottom:12px}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+footer ul a{text-decoration:none;font-size:.9rem;color:var(--deep-ink)}
+footer ul a:hover{color:var(--brand);text-decoration:underline}
+footer .flogo{border:1px solid var(--line)}
+footer .flogo{background:#fff;border-radius:12px;padding:8px 12px;display:inline-block}
+footer .flogo img{height:56px;width:auto}
+footer .legal{border-top:1px solid var(--line);margin-top:40px;padding-top:24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.82rem;color:var(--deep-muted)}
+footer .disc{font-size:.82rem;color:var(--deep-muted);max-width:70ch;margin-top:16px}
+
+/* Responsive */
+@media (max-width:1080px){
+  nav.main,.hbar>.btn{display:none}
+  .burger{display:block}
+  .g5{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .trust .wrap{grid-template-columns:repeat(3,1fr)}
+  .trust div:nth-child(4){border-left:0;padding-left:0}
+  footer .fgrid{grid-template-columns:repeat(3,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr);row-gap:28px}
+  .steps::before{display:none}
+}
+@media (max-width:820px){
+  .hero,.page-hero,.proc,.cta{grid-template-columns:1fr}
+  .hero-media{aspect-ratio:4/3}
+  .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .toc{position:static;flex-direction:row;flex-wrap:wrap;gap:6px}
+  .toc a{border:1px solid var(--line);border-radius:999px;padding:6px 12px}
+  .tl .body{grid-template-columns:1fr}
+  .hosp{grid-template-columns:1fr}
+  .hosp .logo-box{max-width:240px}
+  .actionbar{display:flex}
+  body{padding-bottom:84px}
+  .intl .l{display:none}
+  .intl .wrap{justify-content:center}
+}
+@media (max-width:560px){
+  body{font-size:16px}
+  .g2,.g3,.g4,.g5,.frow,.facts{grid-template-columns:1fr}
+  .cats{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  .trust .wrap{grid-template-columns:1fr 1fr}
+  .trust div{border-left:0!important;padding-left:0}
+  .steps{grid-template-columns:1fr 1fr}
+  footer .fgrid{grid-template-columns:1fr 1fr}
+  .case .meta{grid-template-columns:1fr}
+  .logo img{height:34px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div class="intl"><div class="wrap">
+  <span class="l">● International patients · Virtual consultations available</span>
+  <span class="r"><a href="https://wa.me/917900170669" target="_blank" rel="noopener">WhatsApp +91 79001 70669</a><span>EN</span></span>
+</div></div>
+
+<header class="site" id="hdr">
+  <div class="wrap hbar">
+    <a class="logo" href="#home" aria-label="JaneMED Surgical India, home"><img src="assets/logo.png" alt="JaneMED Surgical India" width="302" height="83"></a>
+    <nav class="main" aria-label="Main">
+      <button class="navbtn" data-menu="m-surgery" aria-expanded="false">Surgery <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="navbtn" data-menu="m-intl" aria-expanded="false">International Patients <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="navbtn" data-menu="m-about" aria-expanded="false">About <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="navbtn" data-menu="m-results" aria-expanded="false">Results <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+      <button class="navbtn" data-menu="m-res" aria-expanded="false">Resources <svg viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5"/></svg></button>
+    </nav>
+    <a class="btn btn-primary btn-sm" href="#consult">Book Consultation</a>
+    <button class="burger" id="burger" aria-label="Open menu"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M3 6h16M3 11h16M3 16h16" stroke="currentColor" stroke-width="1.6"/></svg></button>
+  </div>
+  <div id="megas"></div>
+</header>
+
+<div class="drawer" id="drawer" hidden></div>
+
+<main id="view"></main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid" id="fgrid"></div>
+    <p class="disc">Information on this website is general and does not replace a consultation. Suitability for any procedure is decided by a surgeon after clinical assessment. Individual results vary. Before-and-after images are shown with patient consent.</p>
+    <div class="legal"><span>© 2026 JaneMED Surgical India. All rights reserved.</span><span><a href="#legal" style="color:inherit">Privacy policy · Terms · Medical disclaimer</a></span></div>
+  </div>
+</footer>
+
+<div class="actionbar"><a class="btn btn-primary" href="#consult">Book Consultation</a><a class="btn btn-ghost" href="https://wa.me/917900170669" target="_blank" rel="noopener">WhatsApp</a></div>
+
+<script>
+const WA = "https://wa.me/917900170669";
+const WA_TXT = "+91 79001 70669";
+const EMAIL = "janemedsurgical@gmail.com";
+const ADDR = "E-109, APMC Market Yard, Vashi, Navi Mumbai 400705, Maharashtra, India";
+
+/* ---------- Data ---------- */
+const CATS = {
+  ffs:{name:"Facial Feminisation", long:"Facial Feminisation Surgery", short:"FFS", img:"ffs.jpg",
+    blurb:"Forehead, nose, jaw, chin, cheeks and lips, planned as one face.",
+    what:"Facial Feminisation Surgery (FFS) is a group of procedures that soften and reshape facial features usually read as masculine. Most patients combine several procedures, planned together so the result looks balanced rather than altered.",
+    who:"Trans women and transfeminine people, and anyone seeking a softer facial balance. Your surgeon reviews photographs and, where needed, scans to decide which areas to address.",
+    procs:["Forehead contouring","Rhinoplasty","Jaw contouring","Chin surgery","Cheek implants","Cheek reduction","Buccal fat removal","Lip contouring","Blepharoplasty (eyelids)","Facelift","MACS lift","Neck lift","Face rejuvenation","Hairline restoration"]},
+  vaginoplasty:{name:"Vaginoplasty", long:"Vaginoplasty", short:"Vaginoplasty", img:"vagino.jpg",
+    blurb:"Penile inversion, peritoneal pull-through, sigmoid colon and more.",
+    what:"Vaginoplasty is gender-affirming genital surgery that creates a vulva and, in most techniques, a vaginal canal. Several techniques exist. They differ in which tissue lines the canal, so the right one depends on your anatomy, goals and medical history.",
+    who:"Trans women and transfeminine people who have decided on genital surgery. Readiness criteria, hormone history and any letters of support are discussed during your assessment.",
+    procs:["Penile inversion","Peritoneal pull-through (PPV)","Hybrid PPV","Sigmoid colon","Jejunum vaginoplasty","Zero-depth vaginoplasty"]},
+  breast:{name:"Breast Surgery", long:"Breast Surgery", short:"Breast", img:"breast.jpg",
+    blurb:"Augmentation, uplift, reduction and reconstruction.",
+    what:"Breast surgery changes the size, shape or position of the breasts. It includes gender-affirming augmentation as well as cosmetic and reconstructive procedures.",
+    who:"Anyone considering breast augmentation, an uplift, a reduction or reconstruction. Implant type, size and placement are chosen with your surgeon.",
+    procs:["Breast augmentation","Breast uplift","Breast reduction","Breast reconstruction"]},
+  body:{name:"Body Contouring", long:"Body Contouring", short:"Body", img:"body.jpg",
+    blurb:"Liposuction, tummy tuck, BBL and custom hip implants.",
+    what:"Body contouring reshapes the waist, hips, abdomen and buttocks through fat removal, fat transfer, skin tightening or implants. For gender-affirming body feminisation, several of these are often combined.",
+    who:"Patients seeking a different body shape, or body feminisation alongside other gender-affirming care. A stable weight and good general health matter for safe results.",
+    procs:["Liposuction","Tummy tuck","Muscle repair","Belt lipectomy","Brazilian butt lift (BBL)","Butt fat injections","Silicone butt implants","Customised hip implants","3-D customised titanium hip implants","Fat grafting"]},
+  hair:{name:"Hair Transplant", long:"Hair Transplant", short:"Hair", img:"hair.jpg",
+    blurb:"FUE and FUT methods, including hairline restoration.",
+    what:"Hair transplant moves hair follicles from a dense donor area to thinning areas or to a new hairline. JaneMED offers both FUE and FUT methods.",
+    who:"Patients with hair loss, or those lowering and rounding the hairline as part of facial feminisation.",
+    procs:["FUE (follicular unit extraction)","FUT (follicular unit transplantation)","Hairline restoration"]}
+};
+const CAT_ORDER = ["ffs","vaginoplasty","breast","body","hair"];
+
+const TESTI = [
+  {n:"Sugar Swan", img:"t4.jpg", q:"My surgeries went exceptionally well, thanks to one of the best teams of surgeons. My recovery was also handled with great care at JaneMED. The people of India were incredibly kind and welcoming."},
+  {n:"Anne Morie", img:"t3.jpg", q:"My procedure went smoothly from day one (consultation) to the recovery. Very good teamwork, and I would recommend it to my friends and colleagues."},
+  {n:"Karen B.", img:"t6.jpg", q:"Food, transportation, medication, in fact everything was taken care of. It was more than I expected. Truly amazing. Looking forward to seeing you next year."},
+  {n:"Sarah", img:"t5.jpg", q:"I would like to convey my heartfelt thank you to all of the JaneMED team, especially to the surgeon who gave me a new life. He was fantastic."},
+  {n:"Denise Toureau", img:"t2.jpg", q:"It was a great experience taking treatment under JaneMED Surgical India. Everyone in the health care team has been so wonderful."},
+  {n:"Mckenzie Lockwood", img:"t1.jpg", q:"To JaneMED Surgical, thanks for all the memories! You're the best."}
+];
+
+const HOSPITALS = [
+  {n:"KMS Hospital", logo:"h-kms.jpg", facts:["Advanced operation theatres","24/7 emergency services","ICU / CCU","Comprehensive diagnostic facilities","Patient-friendly amenities"]},
+  {n:"Global Hospitals", logo:"h-global.jpg", facts:["Multi-specialty hospital","Experienced specialist teams","Friendly, supportive patient environment"]},
+  {n:"Fortis Healthcare", logo:"h-fortis.png", facts:["Named Best Hospital Chain and Best Hospital for Patient Care at the Economic Times Healthworld Hospital Awards 2020"]},
+  {n:"Reliance Hospital", logo:"h-reliance.png", facts:["Full-time specialist system","First hospital in India with a three-room intra-operative MRI suite (IMRIS)"]}
+];
+
+const JOURNEY10 = [
+  ["Tell us your goals","You fill in the consultation form or message us on WhatsApp.","You and a JaneMED patient coordinator.","Share the procedure you are considering, your country and a rough timeframe."],
+  ["Virtual consultation","A video, phone or email consultation, from home.","Your coordinator and, where relevant, the surgeon.","Ask every question you have. No travel is needed at this stage."],
+  ["Medical assessment","The surgeon reviews your history, photographs and any reports.","Your surgeon.","Send records securely and answer health questions honestly."],
+  ["Personal treatment plan","A written plan of the procedures recommended for you.","Your surgeon and coordinator.","Read the plan, ask about alternatives and risks."],
+  ["Treatment estimate","An individual estimate based on your plan.","Your coordinator.","Check what is and is not included before you commit."],
+  ["Travel to India","You book flights and arrive in Mumbai on the agreed date.","You, with your coordinator confirming arrival details.","Arrange your visa and bring your documents and medications."],
+  ["Hospital & surgery","Pre-operative tests, admission and your surgery.","Surgeon, anaesthetist and hospital nursing team.","Follow fasting and pre-op instructions."],
+  ["Recovery","Inpatient care, then recovery in Mumbai before you fly.","Hospital team, then your coordinator.","Rest, attend reviews and follow aftercare instructions."],
+  ["Post-op follow-up","In-person review before you leave.","Your surgeon.","Fly home only after your surgeon clears you to travel."],
+  ["Return home","Remote follow-up by video or message.","Your surgeon and coordinator.","Share progress photos and report any concerns early."]
+];
+
+const FAQ = [
+  ["Can I consult online, and do I need to visit before surgery?","Yes. Your first consultation happens by video, phone or email, so you do not need to travel to start. The surgeon reviews your history and photographs remotely and tells you whether anything needs to be checked in person when you arrive."],
+  ["How long must I stay, and where?","It depends on the procedures in your plan. Your treatment plan sets out the expected hospital stay and the time to stay in Mumbai afterwards before you are reviewed for travel. Your coordinator can help with recovery accommodation."],
+  ["Who meets me at the airport?","Tell your coordinator your flight details. They confirm what arrival support is arranged for you as part of your plan."],
+  ["How does payment work and what does the estimate include?","Your individual estimate lists what is covered, such as surgeon, hospital, anaesthesia and stay, and what is not. Payment terms are explained before you confirm. If something is not on the estimate, ask before you travel."],
+  ["Can I bring a companion or combine procedures?","Many patients travel with a companion, who may need their own visa. Combining procedures is sometimes possible and is decided by your surgeon based on safety."],
+  ["When can I fly home, and what if I have a problem afterwards?","You fly home only after your surgeon clears you to travel. After you return, follow-up continues remotely, and you can contact your coordinator if anything worries you."],
+  ["Is JaneMED a hospital?","JaneMED is a medical travel facilitator based in Navi Mumbai. We connect you with experienced surgeons at partner hospitals and coordinate your care before, during and after surgery."],
+  ["Do I need a medical visa?","Patients travelling for treatment normally apply for an Indian medical visa, and companions for a medical attendant visa. Rules change, so always check the official Government of India visa website before you apply."]
+];
+
+/* ---------- Helpers ---------- */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const crumbs = (...a) => `<div class="crumbs">${a.map((x,i)=> Array.isArray(x)?`<a href="#${x[1]}">${x[0]}</a>`:`<span>${x}</span>`).join("<span>/</span>")}</div>`;
+const tickIcon = `<svg viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.3"/><path d="M5.5 9.2l2.3 2.3 4.7-4.9" stroke="currentColor" stroke-width="1.5"/></svg>`;
+
+const ctaBand = (h="Ready to discuss your surgical journey?", p="You do not need to travel to India for the first conversation. Start with a virtual consultation.", btn="Book a Virtual Consultation") => `
+<section class="band tight"><div class="wrap"><div class="cta">
+  <div class="stack"><h2>${h}</h2><p>${p}</p></div>
+  <div class="btn-row"><a class="btn btn-light" href="#consult">${btn}</a></div>
+</div></div></section>`;
+
+const quoteCard = t => `<figure class="quote" style="margin:0"><blockquote>“${esc(t.q)}”</blockquote><figcaption class="who"><img src="assets/${t.img}" alt="" width="44" height="44"><div><b>${esc(t.n)}</b><span>JaneMED patient</span></div></figcaption></figure>`;
+
+const catCard = k => { const c=CATS[k]; return `<a class="cat" href="#${k}"><div class="img"><img src="assets/${c.img}" alt="" loading="lazy"></div><h3>${c.name}</h3><p>${c.blurb}</p><span class="go">Explore →</span></a>`; };
+
+const faqList = items => `<div class="faq">${items.map(([q,a])=>`<details><summary>${q}<span>+</span></summary><div class="a">${a}</div></details>`).join("")}</div>`;
+
+const pageHero = ({eyebrow, crumb, title, lede, img, btns=true, estimate=false}) => `
+<div class="wrap"><div class="page-hero ${img?"":"solo"}">
+  <div class="stack-lg">
+    ${crumb||""}
+    <div class="stack">${eyebrow?`<span class="eyebrow">${eyebrow}</span>`:""}<h1>${title}</h1>${lede?`<p class="lede">${lede}</p>`:""}</div>
+    ${btns?`<div class="btn-row"><a class="btn btn-primary" href="#consult">Book a Virtual Consultation</a>${estimate?`<a class="btn btn-ghost" href="#consult" data-estimate>Request a Treatment Estimate</a>`:""}</div>`:""}
+  </div>
+  ${img?`<div class="ph-img"><img src="assets/${img}" alt=""></div>`:""}
+</div></div>`;
+
+/* ---------- Pages ---------- */
+const P = {};
+
+P.home = () => `
+<div class="wrap"><div class="hero">
+  <div class="stack-lg">
+    <span class="eyebrow">Gender-affirming & plastic surgery · Mumbai, India</span>
+    <h1>Specialised surgical care in India, <em>designed around you</em></h1>
+    <p class="lede">Gender-affirming, facial, breast, body and hair procedures with coordinated support for patients travelling from around the world, from your first consultation to follow-up at home.</p>
+    <div class="btn-row"><a class="btn btn-primary" href="#consult">Book a Virtual Consultation</a><a class="btn btn-ghost" href="#surgery-all">Explore Procedures</a></div>
+  </div>
+  <div class="hero-media" style="aspect-ratio:4/3"><img src="assets/consult.jpg" alt="Surgeon consulting with a patient before facial surgery"><div class="hero-tag"><span class="dot"></span><span><b>Start from home.</b><br><span class="muted">Your first consultation is by video, phone or email.</span></span></div></div>
+</div></div>
+<div class="trust"><div class="wrap">
+  ${["International patients","Virtual consultations","Experienced surgical team","Hospital-based care","Pre & post-op support"].map(t=>`<div>${tickIcon}${t}</div>`).join("")}
+</div></div>
+
+<section class="band" id="surgery-all"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Surgery</span><h2>Find the procedure you are considering</h2></div></div>
+  <div class="grid g5 cats">${CAT_ORDER.map(catCard).join("")}</div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Why JaneMED</span><h2>Why patients choose JaneMED</h2></div></div>
+  <div class="grid g5">
+    <div class="why"><h4>Specialised surgical network</h4><p>Experienced senior surgeons focused on gender-affirming and plastic surgery.</p></div>
+    <div class="why"><h4>International coordination</h4><p>One coordinator guides you before, during and after your trip.</p></div>
+    <div class="why"><h4>Personalised plans</h4><p>Every plan is built from your goals and a clinical assessment.</p></div>
+    <div class="why"><h4>Hospital-based treatment</h4><p>Surgery takes place in established, fully equipped partner hospitals.</p></div>
+    <div class="why"><h4>Post-operative support</h4><p>Recovery care in Mumbai, then remote follow-up once you are home.</p></div>
+  </div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">International patients</span><h2>Travelling to India for surgery?</h2><p class="lede">Six stages, each one coordinated. You always know what comes next.</p></div><a class="btn btn-ghost" href="#journey">Plan My Surgical Journey</a></div>
+  <div class="steps">
+    ${[["Virtual consultation","Talk to us from home."],["Treatment planning","A written plan from your surgeon."],["Travel planning","Visa, flights and where you stay."],["Hospital & surgery","In an established partner hospital."],["Recovery","Supported recovery in Mumbai."],["Follow-up","Remote reviews once you are home."]].map((s,i)=>`<div class="step"><span class="num">0${i+1}</span><h4>${s[0]}</h4><p>${s[1]}</p></div>`).join("")}
+  </div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Our team</span><h2>Meet your surgical team</h2><p class="lede">Senior surgeons with specialist experience across facial, genital, breast, body and hair surgery.</p></div><a class="btn btn-ghost" href="#surgeons">All surgeons</a></div>
+  <div class="grid g4">${[1,2,3,4].map(()=>`<div class="stack"><div class="portrait">Portrait</div><h4>Surgeon profile</h4><p class="small muted">Name, speciality and qualifications to be published</p><a class="link" href="#surgeons">View profile →</a></div>`).join("")}</div>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Hospitals</span><h2>Your care takes place in established hospital facilities</h2></div><a class="btn btn-ghost" href="#hospitals">Explore our hospitals</a></div>
+  <div class="grid g4">${HOSPITALS.map(h=>`<a class="card" href="#hospitals" style="text-decoration:none"><div style="background:#fff;border-radius:8px;aspect-ratio:300/190;overflow:hidden"><img src="assets/${h.logo}" alt="${h.n} logo" style="width:100%;height:100%;object-fit:contain"></div><h4>${h.n}</h4><p class="small muted">${h.facts[0]}</p></a>`).join("")}</div>
+</div></section>
+
+<section class="band alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Results</span><h2>Real patients. Real journeys.</h2></div><a class="btn btn-ghost" href="#results">View results</a></div>
+  <div class="grid g3">
+    <a class="case" href="#results" style="text-decoration:none"><div class="img"><img src="assets/ba-face.jpg" alt="Facial feminisation before and after" style="object-position:center 30%"></div><div class="meta"><div><b>Area</b>Face</div><div><b>Procedure</b>FFS</div><div><b>Shown</b>With consent</div></div></a>
+    <a class="case" href="#results" style="text-decoration:none"><div class="img"><img src="assets/ba-breast.jpg" alt="Breast augmentation before and after"></div><div class="meta"><div><b>Area</b>Breast</div><div><b>Procedure</b>Augmentation</div><div><b>Shown</b>With consent</div></div></a>
+    <a class="case" href="#results" style="text-decoration:none"><div class="img"><img src="assets/ba-tummy.jpg" alt="Tummy tuck before and after"></div><div class="meta"><div><b>Area</b>Body</div><div><b>Procedure</b>Extended tummy tuck</div><div><b>Shown</b>With consent</div></div></a>
+  </div>
+  <p class="disclaimer" style="margin-top:16px">Individual results vary. Images shown with patient consent, for information only.</p>
+</div></section>
+
+<section class="band"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Patient stories</span><h2>Hear from patients who made the journey</h2></div><a class="btn btn-ghost" href="#stories">All stories</a></div>
+  <div class="grid g3">${TESTI.slice(0,3).map(quoteCard).join("")}</div>
+</div></section>
+
+<section class="band alt"><div class="wrap grid g2" style="gap:56px;align-items:start">
+  <div class="stack-lg"><div class="stack"><span class="eyebrow">Why India</span><h2>Why patients travel to India for surgery</h2></div>
+    <p class="muted">India has experienced surgeons trained in India and abroad, well-equipped private hospitals and direct international flights into Mumbai. Treatment costs are often lower than in many Western countries because of currency exchange and local purchasing power, without cutting corners on care.</p>
+    <div><a class="btn btn-ghost" href="#whyindia">Read more</a></div></div>
+  <div class="stack"><span class="eyebrow">International patient FAQ</span>${faqList(FAQ.slice(0,4))}<a class="link" href="#faq">All questions →</a></div>
+</div></section>
+${ctaBand()}`;
+
+/* Category hub — Template A */
+function hub(k){
+  const c=CATS[k];
+  const linked = k==="vaginoplasty" ? {"Peritoneal pull-through (PPV)":"ppv"} : {};
+  return `
+${pageHero({crumb:crumbs(["Home","home"],["Surgery","home"],c.short), eyebrow:"Surgery in Mumbai, India", title:`${c.long} in India`, lede:c.blurb+" Planned with an experienced surgeon and coordinated for international patients.", img:c.img, estimate:true})}
+<section class="band tight alt"><div class="wrap grid g2" style="gap:48px">
+  <div class="stack"><h2>What is ${c.short==="FFS"?"FFS":c.long.toLowerCase()}?</h2><p class="muted">${c.what}</p></div>
+  <div class="stack"><h2>Who is it for?</h2><p class="muted">${c.who}</p></div>
+</div></section>
+<section class="band tight"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Procedures</span><h2>${c.short} procedures</h2></div></div>
+  <div class="tiles">${c.procs.map(p=> linked[p] ? `<a class="tile" href="#${linked[p]}"><h4>${p}</h4><span class="tag">Read the guide →</span></a>` : `<div class="tile"><h4>${p}</h4><span class="tag">Discussed in consultation</span></div>`).join("")}</div>
+</div></section>
+<section class="band tight alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Your plan</span><h2>How we build your individual plan</h2></div></div>
+  <div class="grid g3">
+    <div class="card"><span class="tag">Step 1</span><h3>Share your goals</h3><p class="muted small">Tell us what you want to change and send photographs or reports securely.</p></div>
+    <div class="card"><span class="tag">Step 2</span><h3>Surgeon assessment</h3><p class="muted small">Your surgeon reviews your history and discusses options with you by video.</p></div>
+    <div class="card"><span class="tag">Step 3</span><h3>Written plan & estimate</h3><p class="muted small">You receive the recommended procedures, expected stay and an individual estimate.</p></div>
+  </div>
+</div></section>
+<section class="band tight"><div class="wrap grid g2" style="gap:48px;align-items:center">
+  <div class="stack"><span class="eyebrow">Your surgeon</span><h2>Operated by experienced senior surgeons</h2><p class="muted">Every procedure is performed by a senior surgeon from the JaneMED network at a partner hospital. Surgeon profiles with qualifications and memberships are published on the surgeons page.</p><a class="link" href="#surgeons">Meet our surgeons →</a></div>
+  ${k==="ffs"?`<div class="case"><div class="img"><img src="assets/ba-face.jpg" alt="FFS before and after" style="object-position:center 30%"></div><div class="meta"><div><b>Procedure</b>FFS</div><div><b>Shown</b>With consent</div><div><b>Note</b>Results vary</div></div></div>`:
+   k==="breast"?`<div class="case"><div class="img"><img src="assets/ba-breast.jpg" alt="Breast augmentation before and after"></div><div class="meta"><div><b>Procedure</b>Augmentation</div><div><b>Shown</b>With consent</div><div><b>Note</b>Results vary</div></div></div>`:
+   k==="body"?`<div class="case"><div class="img"><img src="assets/ba-tummy.jpg" alt="Tummy tuck before and after"></div><div class="meta"><div><b>Procedure</b>Tummy tuck</div><div><b>Shown</b>With consent</div><div><b>Note</b>Results vary</div></div></div>`:
+   `<div class="card"><h3>Results</h3><p class="muted small">Consented before-and-after cases for this category are shared privately during your consultation.</p><a class="link" href="#results">See published results →</a></div>`}
+</div></section>
+<section class="band tight alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Recovery</span><h2>Recovery timeline</h2><p class="lede">Exact timings depend on your procedures and are set out in your plan.</p></div></div>
+  <div class="grid g4">
+    <div class="card"><span class="tag">01 · Hospital</span><h4>Inpatient care</h4><p class="small muted">Monitoring, pain management and nursing care after surgery.</p></div>
+    <div class="card"><span class="tag">02 · In Mumbai</span><h4>Supported recovery</h4><p class="small muted">Rest nearby, with dressing changes and check-ups as advised.</p></div>
+    <div class="card"><span class="tag">03 · Cleared to fly</span><h4>Travel review</h4><p class="small muted">You fly home only after your surgeon confirms it is safe.</p></div>
+    <div class="card"><span class="tag">04 · At home</span><h4>Remote follow-up</h4><p class="small muted">Video reviews and a coordinator to contact with any concern.</p></div>
+  </div>
+</div></section>
+<section class="band tight"><div class="wrap grid g2" style="gap:48px;align-items:start">
+  <div class="stack"><span class="eyebrow">Risks & considerations</span><h2>Know the risks before you decide</h2><p class="muted">All surgery carries risk, including bleeding, infection, reactions to anaesthesia, scarring, and results that differ from what you hoped for. Your surgeon explains the specific risks of your procedures, how they are reduced and what happens if a complication occurs. Read our <a class="link" href="#safety">safety and quality</a> approach.</p></div>
+  <div class="stack"><span class="eyebrow">FAQs</span>${faqList([FAQ[0],FAQ[1],FAQ[5]])}</div>
+</div></section>
+${ctaBand(`Discuss ${c.short} with our team`, "Your first conversation happens from home, by video, phone or email.")}`;
+}
+CAT_ORDER.forEach(k => P[k] = () => hub(k));
+
+/* Procedure page — Template B (phase 2 example) */
+P.ppv = () => `
+${pageHero({crumb:crumbs(["Surgery","home"],["Vaginoplasty","vaginoplasty"],"Technique"), eyebrow:"Vaginoplasty technique", title:"Peritoneal Pull-Through Vaginoplasty", lede:"How the technique works, who it may suit and what recovery involves. Suitability is always decided in consultation with your surgeon.", btns:false})}
+<section class="band tight" style="padding-top:8px"><div class="wrap proc">
+  <nav class="toc" aria-label="On this page"><span class="eyebrow" style="margin-bottom:6px">On this page</span><a href="javascript:void(0)" data-jump="s-suit">Suitability</a><a href="javascript:void(0)" data-jump="s-how">How it works</a><a href="javascript:void(0)" data-jump="s-rec">Recovery</a><a href="javascript:void(0)" data-jump="s-risk">Risks</a><a href="javascript:void(0)" data-jump="s-q">Questions</a><a class="link" href="#vaginoplasty" style="border:0;padding-left:0;margin-top:10px">Compare techniques →</a></nav>
+  <div>
+    <section id="s-suit"><h2>Who may be suitable</h2><p class="muted">Peritoneal pull-through vaginoplasty (PPV) is often considered when there is limited penile or scrotal skin available to line the vaginal canal, for example after puberty blockers, or when a patient wants greater depth. Whether it suits you is decided through clinical assessment, not by choosing from this page.</p></section>
+    <section id="s-how"><h2>How the technique works</h2><p class="muted">The outer genital structures are created in a similar way to penile inversion. The difference is the lining of the canal: tissue from the peritoneum, the membrane lining the abdominal cavity, is brought down to line the upper part of the vaginal canal. This part of the operation is usually carried out through small keyhole incisions in the abdomen. A hybrid PPV combines peritoneal tissue with skin.</p><div class="note">Your surgeon will show you diagrams of the steps during your consultation and explain how they apply to your anatomy.</div></section>
+    <section id="s-rec"><h2>Recovery</h2><p class="muted">Recovery includes an inpatient stay, a period in Mumbai for reviews and wound care, and a lifelong dilation routine to maintain depth. Your plan sets out the expected time in hospital and in Mumbai. You fly home only after your surgeon clears you to travel, and follow-up continues remotely.</p></section>
+    <section id="s-risk"><h2>Risks & considerations</h2><p class="muted">As well as the general risks of any surgery, PPV involves abdominal access, which adds risks related to keyhole surgery. Genital surgery can also involve wound healing problems, narrowing of the canal, urinary issues and changes in sensation. Your surgeon explains the likelihood of each and how they are managed.</p></section>
+    <section id="s-q"><h2>Questions to ask your surgeon</h2><ul class="ticks"><li>Why do you recommend this technique for me rather than another?</li><li>How many of these procedures have you performed?</li><li>How long will I stay in hospital and in Mumbai?</li><li>What does the dilation routine involve, and for how long?</li><li>What happens if I have a complication after I return home?</li></ul></section>
+  </div>
+</div></section>
+${ctaBand("Is this technique right for you?", "That is decided in consultation with the surgeon. Start with a virtual consultation from home.", "Book Consultation")}`;
+
+/* International patients */
+P.international = () => `
+${pageHero({crumb:crumbs(["Home","home"],"International Patients"), eyebrow:"International patients", title:"Surgery in India, coordinated from your first message", lede:"JaneMED is a medical travel facilitator based in Navi Mumbai. We guide trans, nonbinary and gender-diverse patients, and anyone seeking plastic surgery, through every step of travelling to India for treatment.", img:"consult.jpg"})}
+<section class="band tight alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">What the programme covers</span><h2>One coordinator, from first call to follow-up</h2></div></div>
+  <div class="grid g3">
+    <div class="card"><h3>Before you travel</h3><p class="muted small">Virtual consultation, medical review, your written plan and individual estimate, and help planning dates.</p></div>
+    <div class="card"><h3>While you are in Mumbai</h3><p class="muted small">Hospital admission, surgery with a senior surgeon at a partner hospital, inpatient care and recovery support.</p></div>
+    <div class="card"><h3>After you return</h3><p class="muted small">Travel clearance from your surgeon, then remote follow-up and a coordinator you can reach.</p></div>
+  </div>
+</div></section>
+<section class="band tight"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Plan each part of your trip</span><h2>Everything you need to know before you go</h2></div></div>
+  <div class="grid g4">
+    ${[["Your Journey","journey","The ten steps from first message to home."],["Why India","whyindia","Expertise, hospitals, connectivity and cost."],["Travel & Accommodation","travel","Where you stay in hospital and while recovering."],["Visa & Travel","visa","Medical visas, documents and when to arrive."],["Recovery & Aftercare","recovery","Care in hospital, in Mumbai and at home."],["Surgery Costs","costs","What shapes your individual estimate."],["International FAQ","faq","Answers to the questions we hear most."],["Patient Stories","stories","From patients who made the trip."]].map(x=>`<a class="card" href="#${x[1]}" style="text-decoration:none"><h4>${x[0]}</h4><p class="small muted">${x[2]}</p><span class="link" style="margin-top:auto">Read →</span></a>`).join("")}
+  </div>
+</div></section>
+${ctaBand()}`;
+
+P.journey = () => `
+${pageHero({crumb:crumbs(["International Patients","international"],"Your Journey"), eyebrow:"International patients", title:"Your surgical journey in India, carefully coordinated", lede:"An unfamiliar trip becomes a clear sequence. Here is everything that happens, who is involved and what you need to do.", img:"care.jpg"}).replace('Book a Virtual Consultation','Plan My Surgical Journey')}
+<section class="band tight alt"><div class="wrap grid g3">
+  <div class="card phase"><h4>Before you travel</h4><ul class="checks"><li>Online consultation</li><li>Medical history review</li><li>Procedure planning</li><li>Cost estimate</li><li>Surgery scheduling</li></ul></div>
+  <div class="card phase"><h4>When you arrive</h4><ul class="checks"><li>Arrival support</li><li>Accommodation</li><li>Hospital admission</li><li>Surgery</li><li>Post-operative care</li></ul></div>
+  <div class="card phase"><h4>After surgery</h4><ul class="checks"><li>Recovery support</li><li>Follow-up review</li><li>Travel clearance</li><li>Remote follow-up at home</li></ul></div>
+</div></section>
+<section class="band tight"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Ten steps, start to finish</span><h2>Open any step to see the detail</h2></div></div>
+  <div class="tl">${JOURNEY10.map((s,i)=>`<details ${i===0?"open":""}><summary><span class="num">${String(i+1).padStart(2,"0")}</span><h4>${s[0]}</h4><span class="pm">+</span></summary><div class="body"><div><b>What happens</b>${s[1]}</div><div><b>Who is involved</b>${s[2]}</div><div><b>What you do</b>${s[3]}</div></div></details>`).join("")}</div>
+</div></section>
+<section class="band tight alt"><div class="wrap">
+  <div class="sec-head"><div class="stack"><span class="eyebrow">Plan each part of your trip</span><h2>Supporting guides</h2></div></div>
+  <div class="grid g4">${[["Travel & Accommodation","travel"],["Visa & Travel","visa"],["Recovery & Aftercare","recovery"],["International FAQ","faq"]].map(x=>`<a class="card" href="#${x[1]}" style="text-decoration:none"><h4>${x[0]}</h4><span class="link">Read →</span></a>`).join("")}</div>
+</div></section>
+${ctaBand("Start with a conversation from home","No travel needed for the first conversation.")}`;
+
+P.whyindia = () => `
+${pageHero({crumb:crumbs(["International Patients","international"],"Why India"), eyebrow:"International patients", title:"Why patients travel to India for surgery", lede:"A short, factual case. The right choice depends on your procedure, your health and your circumstances.", img:"theatre.jpg"})}
+<section class="band tight alt"><div class="wrap grid g2">
+  ${[["Medical expertise","India has a large number of experienced surgeons, many trained or fellowship-qualified abroad, working in specialist fields including gender-affirming and plastic surgery."],["Hospital infrastructure","Established private hospitals offer modern operating theatres, ICUs and diagnostic facilities. JaneMED patients are treated at partner hospitals."],["Mumbai connectivity","Mumbai's international airport has direct flights from many countries, which makes arrival and departure simpler."],["Cost considerations","Treatment in India often costs less than in many Western countries, largely because of currency exchange and local purchasing power. Your estimate is always individual."],["Follow-up options","Follow-up continues by video and message once you are home, with your coordinator as a single point of contact."],["Shorter waiting times","Many patients choose India because they can schedule surgery without the long waiting lists they face at home."]].map(x=>`<div class="why"><h4>${x[0]}</h4><p>${x[1]}</p></div>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+P.travel = () => `
+${pageHero({crumb:crumbs(["International Patients","international"],"Travel & Accommodation"), eyebrow:"International patients", title:"Travel & accommodation", lede:"Where you stay during your treatment, from the hospital room to recovery in Mumbai.", img:"consult.jpg"})}
+<section class="band tight alt"><div class="wrap grid g2" style="gap:48px;align-items:start">
+  <div class="stack"><span class="eyebrow">In hospital</span><h2>Inpatient accommodation</h2><p class="muted">Partner hospitals offer a variety of inpatient rooms to suit different needs. During your stay you can expect:</p>
+    <ul class="ticks"><li>A nurse call system, available at any time</li><li>Adjustable beds with bed rails</li><li>Pain management</li><li>Telephone access</li><li>Interpreters and support for special needs</li><li>A calm space where recovery feels more like home</li></ul></div>
+  <div class="stack"><span class="eyebrow">After discharge</span><h2>Recovery accommodation</h2><p class="muted">After you leave hospital, you stay in Mumbai for reviews before you are cleared to fly. Your coordinator can advise on recovery accommodation and confirms exactly what support is arranged for you, such as airport transfers, meals and caregiver help, as part of your plan.</p>
+    <div class="note">Ask your coordinator to list every service included in your estimate before you book flights.</div></div>
+</div></section>
+${ctaBand()}`;
+
+P.visa = () => `
+${pageHero({crumb:crumbs(["International Patients","international"],"Visa & Travel"), eyebrow:"International patients", title:"Visa & travel", lede:"What to prepare before you fly. Visa rules change, so always confirm on the official Government of India website."})}
+<section class="band tight alt"><div class="wrap grid g3">
+  <div class="card"><h3>Medical visa</h3><p class="muted small">Patients travelling for treatment normally apply for an Indian medical visa (including the e-Medical visa where eligible). Your coordinator can provide a letter confirming your treatment plan.</p></div>
+  <div class="card"><h3>Companion visa</h3><p class="muted small">A companion usually applies for a medical attendant visa linked to your application.</p></div>
+  <div class="card"><h3>Official source</h3><p class="muted small">Eligibility, fees and processing times are set by the Government of India. Check before applying.</p><a class="link" href="https://indianvisaonline.gov.in/" target="_blank" rel="noopener">indianvisaonline.gov.in ↗</a></div>
+</div></section>
+<section class="band tight"><div class="wrap grid g2" style="gap:48px">
+  <div class="stack"><span class="eyebrow">Documents</span><h2>What to bring</h2><ul class="ticks"><li>Passport and visa</li><li>Your treatment plan and estimate</li><li>Medical reports and current medications</li><li>Hormone history, where relevant</li><li>Travel insurance details</li></ul></div>
+  <div class="stack"><span class="eyebrow">Timing</span><h2>When to arrive and how long to stay</h2><p class="muted">Your coordinator confirms the arrival date, usually a short time before surgery to allow pre-operative tests. Your total stay depends on your procedures and is set out in your plan. Flying home is always subject to medical clearance from your surgeon.</p></div>
+</div></section>
+${ctaBand()}`;
+
+P.recovery = () => `
+${pageHero({crumb:crumbs(["International Patients","international"],"Recovery & Aftercare"), eyebrow:"International patients", title:"Recovery & aftercare", lede:"Care continues at every stage: before surgery, in hospital, before you fly and once you are home."})}
+<section class="band tight alt"><div class="wrap grid g4">
+  ${[["Before surgery","Pre-operative tests, anaesthetic review and clear instructions on fasting and medications."],["In hospital","Monitoring, pain management and nursing care, with interpreters where needed."],["Before flying home","Reviews in Mumbai, wound care and a final check. You fly only after your surgeon clears you."],["Once home","Teleconsultation follow-up, progress photo reviews and a coordinator to contact with concerns."]].map((x,i)=>`<div class="card"><span class="tag">0${i+1}</span><h4>${x[0]}</h4><p class="small muted">${x[1]}</p></div>`).join("")}
+</div></section>
+<section class="band tight"><div class="wrap"><div class="note" style="max-width:72ch">If you notice signs that worry you after returning home, such as fever, increasing pain, swelling or bleeding, contact your local doctor or emergency services first, then let your JaneMED coordinator know.</div></div></section>
+${ctaBand()}`;
+
+/* About */
+P.about = () => `
+${pageHero({crumb:crumbs(["Home","home"],"About"), eyebrow:"About JaneMED", title:"Safe, affirming access to surgery, with someone beside you at every step", lede:"JaneMED Surgical India is a medical travel facilitator in Navi Mumbai, specialising in gender-affirming surgery for trans, nonbinary and gender-diverse people, and in plastic and cosmetic surgery.", img:"care.jpg"})}
+<section class="band tight alt"><div class="wrap grid g2" style="gap:56px">
+  <div class="stack"><span class="eyebrow">Who we are</span><h2>A trusted network, coordinated for you</h2><p class="muted">We work with a network of experienced senior surgeons, fully equipped facilities and inclusive care teams, helping clients from all over the world access high-quality, compassionate care. Whether you are seeking top surgery, bottom surgery, facial feminisation or masculinisation, body feminisation or another gender-affirming procedure, we make the process smooth, safe and empowering.</p><p class="muted">Many of our clients come back to us again, and we understand how much this journey means. We would be honoured to be part of yours.</p></div>
+  <div class="stack"><span class="eyebrow">Our mission</span><h2>Breaking down barriers to care</h2><p class="muted">Our mission is to give trans, nonbinary and gender-diverse people safe, affirming and accessible pathways to gender-affirming surgery in Mumbai, at an affordable price made possible by currency exchange and purchasing power parity.</p><p class="muted">At the heart of what we do is respect for each client's identity, autonomy and lived experience. With us, you are never a number. You are an individual and a friend.</p></div>
+</div></section>
+<section class="band tight"><div class="wrap grid g4">
+  ${[["Our Surgeons","surgeons"],["Hospitals & Facilities","hospitals"],["Patient Care Team","careteam"],["Safety & Quality","safety"]].map(x=>`<a class="card" href="#${x[1]}" style="text-decoration:none"><h4>${x[0]}</h4><span class="link">Read →</span></a>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+P.surgeons = () => `
+${pageHero({crumb:crumbs(["About","about"],"Our Surgeons"), eyebrow:"About", title:"Our surgeons", lede:"JaneMED works with senior, board-certified surgeons in India, including specialists associated with leading hospital groups such as Gleneagles, Apollo, Fortis, Reliance, Max Healthcare and AIIMS."})}
+<section class="band tight alt"><div class="wrap grid g2" style="gap:48px;align-items:start">
+  <div class="stack"><span class="eyebrow">What our surgeons share</span><ul class="ticks"><li>Many years of experience across their specialities</li><li>International training, fellowships and education</li><li>Current techniques and technology</li><li>A patient-first approach, with personal consultations and clear medical advice</li></ul></div>
+  <div class="note">Each surgeon's profile lists eight verified fields: qualifications, years of experience, specialisation, procedures performed, hospitals, professional memberships, publications and languages.</div>
+</div></section>
+<section class="band tight"><div class="wrap">
+  <div class="grid g3">${["Facial & plastic surgery","Gender-affirming genital surgery","Breast & body surgery"].map(s=>`
+  <article class="card"><div class="portrait">Portrait</div><span class="eyebrow">${s}</span><h3>Surgeon profile</h3>
+    <div class="facts">${["Qualifications","Experience","Hospitals","Memberships"].map(f=>`<div><b>${f}</b><span class="tbc">To be published</span></div>`).join("")}</div>
+    <a class="btn btn-primary btn-sm" href="#consult" style="align-self:flex-start;margin-top:8px">Book a consultation</a></article>`).join("")}</div>
+</div></section>
+${ctaBand()}`;
+
+P.hospitals = () => `
+${pageHero({crumb:crumbs(["About","about"],"Hospitals & Facilities"), eyebrow:"About", title:"Hospitals & facilities", lede:"Your surgery takes place in an established partner hospital. Here is what each one offers.", img:"theatre.jpg"})}
+<section class="band tight alt"><div class="wrap stack-lg">
+  ${HOSPITALS.map(h=>`<article class="card hosp"><div class="logo-box"><img src="assets/${h.logo}" alt="${h.n} logo"></div><div class="stack"><h3>${h.n}</h3><ul class="ticks">${h.facts.map(f=>`<li>${f}</li>`).join("")}</ul><div class="facts"><div><b>Location</b><span class="tbc">To be published</span></div><div><b>Surgeons here</b><span class="tbc">To be published</span></div></div></div></article>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+P.careteam = () => `
+${pageHero({crumb:crumbs(["About","about"],"Patient Care Team"), eyebrow:"About", title:"Your patient care team", lede:"Surgery is one day. Your coordinator is with you for the whole journey.", img:"care.jpg"})}
+<section class="band tight alt"><div class="wrap grid g3">
+  ${[["Patient coordinator","Your single point of contact, from the first message through to follow-up at home."],["Surgeon","Assesses you, builds your plan, performs your surgery and clears you to fly."],["Hospital team","Anaesthetists and nursing staff who care for you during your stay."]].map(x=>`<div class="card"><h3>${x[0]}</h3><p class="muted small">${x[1]}</p></div>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+P.safety = () => `
+${pageHero({crumb:crumbs(["About","about"],"Safety & Quality"), eyebrow:"About", title:"Safety & quality", lede:"How safety is managed at every stage. No surgery is risk-free, and we will always tell you so."})}
+<section class="band tight alt"><div class="wrap grid g3">
+  ${[["Pre-operative assessment","Medical history, tests and a review of whether surgery is right for you."],["Anaesthesia","Delivered and monitored by qualified anaesthetists in hospital."],["Infection control","Hospital-standard sterile theatres and post-operative wound care."],["Monitoring","Close observation after surgery, with ICU facilities available at partner hospitals."],["Emergency support","Partner hospitals provide 24/7 emergency services."],["Follow-up","Reviews before you fly and remote follow-up once home."]].map(x=>`<div class="card"><h4>${x[0]}</h4><p class="small muted">${x[1]}</p></div>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+/* Results */
+const CASES = [
+  {cat:"face", img:"ba-face.jpg", pos:"center 30%", proc:"Facial feminisation (FFS)", goal:"Softer facial features", tl:"Shared in consultation"},
+  {cat:"breast", img:"ba-breast.jpg", proc:"Breast augmentation", goal:"Fuller breast shape", tl:"Shared in consultation"},
+  {cat:"body", img:"ba-tummy.jpg", proc:"Extended tummy tuck", goal:"Flatter abdomen", tl:"Shared in consultation"}
+];
+P.results = () => `
+${pageHero({crumb:crumbs(["Home","home"],"Results"), eyebrow:"Results", title:"Before & after", lede:"A small number of carefully chosen cases, each shown with written patient consent. More cases are shared privately during your consultation.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap">
+  <div class="filters" role="group" aria-label="Filter results">${[["all","All"],["face","Face"],["breast","Breast"],["body","Body"],["hair","Hair"],["ga","Gender affirmation"]].map((f,i)=>`<button data-f="${f[0]}" aria-pressed="${i===0}">${f[1]}</button>`).join("")}</div>
+  <div class="grid g3" id="cases"></div>
+  <p class="disclaimer" style="margin-top:16px">Individual results vary. Shown with patient consent, for information only.</p>
+</div></section>
+${ctaBand()}`;
+
+P.stories = () => `
+${pageHero({crumb:crumbs(["Results","results"],"Patient Stories"), eyebrow:"Results", title:"Patient stories", lede:"In their own words. Video stories are published on our YouTube channel.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap stack-lg">
+  <div class="grid g3">${TESTI.map(quoteCard).join("")}</div>
+  <div><a class="btn btn-ghost" href="https://www.youtube.com/@janemedsurgical/" target="_blank" rel="noopener">Watch stories on YouTube ↗</a></div>
+</div></section>
+${ctaBand()}`;
+
+P.testimonials = () => `
+${pageHero({crumb:crumbs(["Results","results"],"Testimonials"), eyebrow:"Results", title:"Testimonials", lede:"What patients say about their care with JaneMED.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap grid g2">${TESTI.map(quoteCard).join("")}</div></section>
+${ctaBand()}`;
+
+/* Resources */
+P.faq = () => `
+${pageHero({crumb:crumbs(["Resources","guides"],"International Patient FAQ"), eyebrow:"Resources", title:"International patient FAQ", lede:"Straight answers to the questions we hear most. Ask us anything that is not covered here."})}
+<section class="band tight alt"><div class="wrap" style="max-width:860px;margin:0 auto">${faqList(FAQ)}</div></section>
+${ctaBand()}`;
+
+P.costs = () => `
+${pageHero({crumb:crumbs(["Resources","guides"],"Surgery Costs"), eyebrow:"Resources", title:"Surgery costs", lede:"Every estimate is individual. Here is what shapes yours.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap grid g2" style="gap:48px;align-items:start">
+  <div class="stack-lg"><div class="pills">${["Procedure","Complexity","Number of procedures","Hospital","Anaesthesia","Recovery needs","Accommodation","Investigations"].map(x=>`<span class="pill">${x}</span>`).join("")}</div>
+  <p class="muted">We do not publish "starting from" prices, because they rarely match what a patient actually pays. Once your surgeon has reviewed your case, you receive a written estimate listing what is included, so you can compare it properly.</p></div>
+  <div class="card stack"><span class="eyebrow">Next step</span><h3>Request an individual treatment estimate</h3><p class="muted small">Tell us the procedure you are considering. Your coordinator replies with the next steps.</p><a class="btn btn-primary" href="#consult" data-estimate style="align-self:flex-start">Request a Treatment Estimate</a></div>
+</div></section>
+${ctaBand()}`;
+
+P.guides = () => `
+${pageHero({crumb:crumbs(["Home","home"],"Resource Centre"), eyebrow:"Resources", title:"Resource centre", lede:"Guides for patients who are still researching.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap grid g3">
+  ${[["Peritoneal pull-through vaginoplasty explained","ppv",true],["International patient FAQ","faq",true],["Your surgical journey, step by step","journey",true],["Surgery costs: what shapes your estimate","costs",true],["FFS procedures explained, with recovery timeline",null],["Vaginoplasty techniques compared",null],["Travelling to India for plastic surgery",null],["What to expect during a surgical stay in Mumbai",null],["How international consultations work",null]].map(g=>g[1]?`<a class="card" href="#${g[1]}" style="text-decoration:none"><span class="tag">Guide</span><h3>${g[0]}</h3><span class="link" style="margin-top:auto">Read →</span></a>`:`<div class="card"><span class="tag">Coming soon</span><h3 class="muted">${g[0]}</h3></div>`).join("")}
+</div></section>
+${ctaBand()}`;
+
+/* Contact & consult */
+const copyLine = (v,label) => `<div class="copyline"><code>${v}</code><button class="copybtn" data-copy="${v}" aria-label="Copy ${label}">Copy</button></div>`;
+P.contact = () => `
+${pageHero({crumb:crumbs(["Home","home"],"Contact"), eyebrow:"Contact", title:"Talk to JaneMED", lede:"The quickest way to start is the consultation form. For anything else, reach us directly.", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap grid g3">
+  <div class="card"><span class="eyebrow">WhatsApp</span>${copyLine(WA_TXT,"WhatsApp number")}<a class="link" href="${WA}" target="_blank" rel="noopener">Open WhatsApp ↗</a></div>
+  <div class="card"><span class="eyebrow">Email</span>${copyLine(EMAIL,"email address")}</div>
+  <div class="card"><span class="eyebrow">Office</span><p>E-109, APMC Market Yard<br>Vashi, Navi Mumbai 400705<br>Maharashtra, India</p><a class="link" href="https://maps.google.com/?q=APMC+Market+Yard+Vashi+Navi+Mumbai" target="_blank" rel="noopener">Open in Maps ↗</a></div>
+</div>
+<div class="wrap" style="margin-top:20px"><div class="pills"><a class="pill" href="https://www.instagram.com/janemedsurgical/" target="_blank" rel="noopener">Instagram ↗</a><a class="pill" href="https://www.youtube.com/@janemedsurgical/" target="_blank" rel="noopener">YouTube ↗</a><a class="pill" href="https://www.facebook.com/JaneMEDSURGICALINDIA" target="_blank" rel="noopener">Facebook ↗</a></div></div></section>
+${ctaBand()}`;
+
+P.consult = () => `
+<div class="wrap"><div class="page-hero solo"><div class="stack-lg">${crumbs(["Home","home"],"Book a Virtual Consultation")}
+  <div class="stack"><span class="eyebrow">Book a virtual consultation</span><h1>Start your consultation</h1><p class="lede">No travel needed for the first conversation. A patient coordinator reads every enquiry and replies by email or WhatsApp to arrange your call.</p></div></div></div></div>
+<section class="band tight" style="padding-top:0"><div class="wrap grid" style="grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:40px;align-items:start" id="consultGrid">
+  <div id="formWrap">
+  <form class="form" id="cform" novalidate>
+    <div class="fgroup"><span class="eyebrow">About you</span>
+      <div class="frow"><div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" autocomplete="name" required></div>
+      <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div></div>
+      <div class="frow"><div class="field"><label for="f-country">Country</label><select id="f-country" name="country" required><option value="">Select</option>${["Australia","United Kingdom","United States","Canada","Ireland","New Zealand","Germany","France","Netherlands","Other European country","India","Other"].map(c=>`<option>${c}</option>`).join("")}</select></div>
+      <div class="field"><label for="f-phone">Phone / WhatsApp</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="Include country code"></div></div>
+    </div>
+    <div class="fgroup"><span class="eyebrow">What and when</span>
+      <div class="field"><span class="flabel">Which procedure are you interested in?</span><div class="chips">${["FFS","Vaginoplasty","Breast","Body","Hair","Other"].map((p,i)=>`<input type="radio" name="proc" id="p${i}" value="${p}"><label for="p${i}">${p}</label>`).join("")}</div></div>
+      <div class="frow"><div class="field"><span class="flabel">Preferred consultation method</span><div class="chips">${["Video","Phone","Email"].map((p,i)=>`<input type="radio" name="method" id="m${i}" value="${p}" ${i===0?"checked":""}><label for="m${i}">${p}</label>`).join("")}</div></div>
+      <div class="field"><label for="f-time">Preferred timeframe</label><select id="f-time" name="time"><option value="">Select</option><option>Within 3 months</option><option>3 to 6 months</option><option>6 to 12 months</option><option>Just researching</option></select></div></div>
+      <div class="field"><span class="flabel">Have you had previous surgery?</span><div class="chips"><input type="radio" name="prev" id="pv1" value="Yes"><label for="pv1">Yes</label><input type="radio" name="prev" id="pv2" value="No"><label for="pv2">No</label></div></div>
+    </div>
+    <div class="fgroup"><span class="eyebrow">Records (optional)</span>
+      <label class="drop" for="f-files"><span id="fileLabel">Add medical reports or photos. Files are sent over an encrypted channel and seen only by your coordinator and surgeon.</span></label><input id="f-files" type="file" multiple hidden>
+      <div class="field"><label for="f-msg">Message</label><textarea id="f-msg" name="msg" rows="4" placeholder="Anything you would like the surgeon to know"></textarea></div>
+    </div>
+    <div class="fgroup"><label class="consent"><input type="checkbox" id="f-consent" required><span>I agree to the <a class="link" href="#legal">privacy policy</a> and to being contacted about my enquiry.</span></label>
+      <p class="err" id="ferr" hidden></p>
+      <button class="btn btn-primary" type="submit" style="align-self:flex-start">Request Consultation</button></div>
+  </form></div>
+  <aside class="stack-lg">
+    <div class="card"><span class="eyebrow">What happens next</span><ul class="checks"><li>Your coordinator reads your enquiry</li><li>We arrange a video, phone or email consultation</li><li>Your surgeon reviews your case</li><li>You receive a written plan and estimate</li></ul></div>
+    <div class="card"><span class="eyebrow">Not ready to book?</span><p class="small muted">Chat with a patient coordinator on WhatsApp.</p>${copyLine(WA_TXT,"WhatsApp number")}<a class="link" href="${WA}" target="_blank" rel="noopener">Open WhatsApp ↗</a></div>
+  </aside>
+</div></section>`;
+
+P.legal = () => `
+${pageHero({crumb:crumbs(["Home","home"],"Legal"), eyebrow:"Legal", title:"Privacy, terms & medical disclaimer", btns:false})}
+<section class="band tight" style="padding-top:0"><div class="wrap stack-lg" style="max-width:820px;margin:0 auto">
+  <div class="stack"><h3>Privacy policy</h3><p class="muted">We use the details you send us, including any medical records, only to respond to your enquiry and coordinate your care. Medical files are shared only with the surgeons and hospitals involved in your treatment. You can ask us to delete your data at any time by emailing ${EMAIL}.</p></div>
+  <div class="stack"><h3>Terms of use</h3><p class="muted">JaneMED Surgical India is a medical travel facilitator. Treatment is provided by independent surgeons at partner hospitals. Estimates are individual and confirmed in writing before you travel.</p></div>
+  <div class="stack"><h3>Medical disclaimer</h3><p class="muted">Content on this website is general information and is not medical advice. Suitability for any procedure is decided by a surgeon after clinical assessment. Individual results vary.</p></div>
+  <p class="small muted">Final legal wording to be reviewed by JaneMED's legal adviser before launch.</p>
+</div></section>`;
+
+/* ---------- Menus ---------- */
+const MENUS = {
+  "m-surgery": {cols: CAT_ORDER.map(k=>({h:[CATS[k].name,k], items:CATS[k].procs.slice(0,4).map(p=>[p, p.startsWith("Peritoneal")?"ppv":k]).concat([[`All ${CATS[k].short} →`,k]])})), helper:true},
+  "m-intl": {cols:[{h:["Programme overview","international"],items:[["Your Journey","journey"],["Why India","whyindia"]]},{h:["Your trip","travel"],items:[["Travel & Accommodation","travel"],["Visa & Travel","visa"]]},{h:["Aftercare","recovery"],items:[["Recovery & Aftercare","recovery"],["International FAQ","faq"]]}]},
+  "m-about": {cols:[{h:["About JaneMED","about"],items:[["Our story & mission","about"],["Patient Care Team","careteam"]]},{h:["People & places","surgeons"],items:[["Our Surgeons","surgeons"],["Hospitals & Facilities","hospitals"]]},{h:["Standards","safety"],items:[["Safety & Quality","safety"]]}]},
+  "m-results": {cols:[{h:["Before & After","results"],items:[["Face, breast, body","results"]]},{h:["Patient Stories","stories"],items:[["In their own words","stories"]]},{h:["Testimonials","testimonials"],items:[["What patients say","testimonials"]]}]},
+  "m-res": {cols:[{h:["International FAQ","faq"],items:[["Common questions","faq"]]},{h:["Surgery Costs","costs"],items:[["What shapes your estimate","costs"]]},{h:["Resource Centre","guides"],items:[["Guides","guides"]]}]}
+};
+const helperHTML = `<div class="helper"><span class="eyebrow">Not sure which procedure?</span><p>Tell a coordinator what you want to change. They will point you to the right surgeon.</p><a class="btn btn-ghost btn-sm" href="${WA}" target="_blank" rel="noopener" style="align-self:flex-start">Talk to a coordinator</a></div>`;
+$("#megas").innerHTML = Object.entries(MENUS).map(([id,m])=>`<div class="mega ${m.helper?"":"cols4"}" id="${id}" hidden><div class="wrap">${m.cols.map(c=>`<div><h4><a href="#${c.h[1]}">${c.h[0]}</a></h4><ul>${c.items.map(i=>`<li><a href="#${i[1]}">${i[0]}</a></li>`).join("")}</ul></div>`).join("")}${helperHTML}</div></div>`).join("");
+
+const closeMegas = () => { document.querySelectorAll(".mega").forEach(m=>m.hidden=true); document.querySelectorAll(".navbtn").forEach(b=>b.setAttribute("aria-expanded","false")); };
+document.querySelectorAll(".navbtn").forEach(b=>{
+  b.addEventListener("click", e=>{ e.stopPropagation(); const open=b.getAttribute("aria-expanded")==="true"; closeMegas(); if(!open){ $("#"+b.dataset.menu).hidden=false; b.setAttribute("aria-expanded","true"); } });
+});
+document.addEventListener("click", e=>{ if(!e.target.closest("#hdr")) closeMegas(); });
+document.addEventListener("keydown", e=>{ if(e.key==="Escape"){ closeMegas(); $("#drawer").hidden=true; } });
+
+/* Drawer */
+const navLabels = {"m-surgery":"Surgery","m-intl":"International Patients","m-about":"About","m-results":"Results","m-res":"Resources"};
+$("#drawer").innerHTML = `<div class="top"><a class="logo" href="#home"><img src="assets/logo.png" alt="JaneMED Surgical India" style="height:34px"></a><button class="burger" style="display:block;margin:0" id="dclose" aria-label="Close menu"><svg width="22" height="22" viewBox="0 0 22 22" fill="none"><path d="M5 5l12 12M17 5L5 17" stroke="currentColor" stroke-width="1.6"/></svg></button></div>` +
+  Object.entries(MENUS).map(([id,m])=>`<details><summary>${navLabels[id]}<span>+</span></summary><ul>${m.cols.flatMap(c=>[[c.h[0],c.h[1]],...c.items.filter(i=>i[0]!==c.h[0])]).filter((v,i,a)=>a.findIndex(x=>x[0]===v[0])===i).map(i=>`<li><a href="#${i[1]}">${i[0].replace(" →","")}</a></li>`).join("")}</ul></details>`).join("") +
+  `<div class="stack" style="margin-top:24px"><a class="btn btn-primary" href="#consult">Book a Virtual Consultation</a><a class="btn btn-ghost" href="#contact">Contact</a></div>`;
+$("#burger").onclick = ()=>{ $("#drawer").hidden=false; };
+$("#drawer").addEventListener("click", e=>{ if(e.target.closest("#dclose") || e.target.closest("a")) $("#drawer").hidden=true; });
+
+/* Footer */
+$("#fgrid").innerHTML = `
+<div class="stack"><a class="flogo" href="#home"><img src="assets/footerlogo.png" alt="JaneMED Surgical India"></a><p class="small" style="color:var(--deep-muted)">E-109, APMC Market Yard, Vashi<br>Navi Mumbai 400705, India</p><p class="small" style="color:var(--deep-muted)">${EMAIL}<br>WhatsApp ${WA_TXT}</p></div>
+<div><h4>Surgery</h4><ul>${CAT_ORDER.map(k=>`<li><a href="#${k}">${CATS[k].name}</a></li>`).join("")}</ul></div>
+<div><h4>International</h4><ul><li><a href="#international">Programme overview</a></li><li><a href="#journey">Your Journey</a></li><li><a href="#whyindia">Why India</a></li><li><a href="#travel">Travel & Accommodation</a></li><li><a href="#visa">Visa & Travel</a></li><li><a href="#recovery">Recovery & Aftercare</a></li></ul></div>
+<div><h4>About</h4><ul><li><a href="#about">About JaneMED</a></li><li><a href="#surgeons">Our Surgeons</a></li><li><a href="#hospitals">Hospitals & Facilities</a></li><li><a href="#careteam">Patient Care Team</a></li><li><a href="#safety">Safety & Quality</a></li></ul></div>
+<div><h4>Results & resources</h4><ul><li><a href="#results">Before & After</a></li><li><a href="#stories">Patient Stories</a></li><li><a href="#testimonials">Testimonials</a></li><li><a href="#faq">FAQ</a></li><li><a href="#costs">Surgery Costs</a></li><li><a href="#guides">Resource Centre</a></li></ul></div>
+<div><h4>Contact</h4><ul><li><a href="#consult">Book a Virtual Consultation</a></li><li><a href="#contact">Contact</a></li><li><a href="https://www.instagram.com/janemedsurgical/" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.youtube.com/@janemedsurgical/" target="_blank" rel="noopener">YouTube</a></li><li><a href="https://www.facebook.com/JaneMEDSURGICALINDIA" target="_blank" rel="noopener">Facebook</a></li></ul><h4 style="margin-top:20px">Other medical services</h4><ul><li><a href="#contact">Dental</a></li><li><a href="#contact">Laser eye surgery</a></li></ul></div>`;
+
+/* ---------- Router ---------- */
+const TITLES = {home:"Specialised surgical care in India",consult:"Book a Virtual Consultation",contact:"Contact",ffs:"Facial Feminisation Surgery",vaginoplasty:"Vaginoplasty",breast:"Breast Surgery",body:"Body Contouring",hair:"Hair Transplant",ppv:"Peritoneal Pull-Through Vaginoplasty",international:"International Patients",journey:"Your Journey",whyindia:"Why India",travel:"Travel & Accommodation",visa:"Visa & Travel",recovery:"Recovery & Aftercare",about:"About",surgeons:"Our Surgeons",hospitals:"Hospitals & Facilities",careteam:"Patient Care Team",safety:"Safety & Quality",results:"Before & After",stories:"Patient Stories",testimonials:"Testimonials",faq:"International Patient FAQ",costs:"Surgery Costs",guides:"Resource Centre",legal:"Legal"};
+let estimateMode=false;
+function render(){
+  let key = (location.hash||"#home").slice(1);
+  let anchor = null;
+  if(!P[key]){ anchor = document.getElementById(key) ? key : null; if(anchor){ document.getElementById(anchor).scrollIntoView({behavior:"smooth"}); return; } key="home"; }
+  closeMegas();
+  $("#view").innerHTML = P[key]();
+  document.title = "JaneMED Surgical India · " + TITLES[key];
+  window.scrollTo(0,0);
+  if(key==="results") setupCases();
+  if(key==="consult") setupForm();
+}
+window.addEventListener("hashchange", render);
+document.addEventListener("click", e=>{
+  const est = e.target.closest("[data-estimate]"); estimateMode = !!est;
+  const j = e.target.closest("[data-jump]"); if(j){ e.preventDefault(); document.getElementById(j.dataset.jump)?.scrollIntoView({behavior:"smooth"}); }
+  const a = e.target.closest('a[href^="#"]');
+  if(a && a.getAttribute("href")===location.hash && P[location.hash.slice(1)]) { render(); }
+  const c = e.target.closest("[data-copy]");
+  if(c){ const v=c.dataset.copy; const done=()=>{c.textContent="Copied"; setTimeout(()=>c.textContent="Copy",1500)};
+    try{ navigator.clipboard.writeText(v).then(done).catch(()=>selectNear(c)); }catch(_){ selectNear(c); } }
+});
+function selectNear(btn){ const code=btn.parentElement.querySelector("code"); const r=document.createRange(); r.selectNodeContents(code); const s=getSelection(); s.removeAllRanges(); s.addRange(r); }
+
+function setupCases(){
+  const draw = f => { $("#cases").innerHTML = CASES.filter(c=>f==="all"||c.cat===f).map(c=>`<article class="case"><div class="img"><img src="assets/${c.img}" alt="${c.proc} before and after" ${c.pos?`style="object-position:${c.pos}"`:""}></div><div class="meta"><div><b>Procedure</b>${c.proc}</div><div><b>Patient goal</b>${c.goal}</div><div><b>Timeline</b>${c.tl}</div></div></article>`).join("") || `<div class="card" style="grid-column:1/-1"><h3>Cases coming soon</h3><p class="muted small">Consented cases in this category are shared during your consultation. <a class="link" href="#consult">Book a consultation</a></p></div>`; };
+  draw("all");
+  document.querySelectorAll(".filters button").forEach(b=>b.onclick=()=>{ document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed","false")); b.setAttribute("aria-pressed","true"); draw(b.dataset.f); });
+}
+function setupForm(){
+  if(window.innerWidth<820) $("#consultGrid").style.gridTemplateColumns="1fr";
+  if(estimateMode){ $("#f-msg").value = "I would like an individual treatment estimate."; }
+  $("#f-files").onchange = e => { const n=e.target.files.length; $("#fileLabel").textContent = n ? `${n} file${n>1?"s":""} ready to send securely` : "Add medical reports or photos."; };
+  $("#cform").addEventListener("submit", e=>{
+    e.preventDefault();
+    const miss=[]; if(!$("#f-name").value.trim()) miss.push("your name"); if(!/^\S+@\S+\.\S+$/.test($("#f-email").value)) miss.push("a valid email"); if(!$("#f-country").value) miss.push("your country"); if(!$("#f-consent").checked) miss.push("your agreement to be contacted");
+    if(miss.length){ const er=$("#ferr"); er.hidden=false; er.textContent = "Please add " + miss.join(", ") + " so we can reply."; return; }
+    const name=$("#f-name").value.trim().split(" ")[0];
+    $("#formWrap").innerHTML = `<div class="done"><span class="eyebrow">Enquiry received</span><h2>Thank you, ${esc(name)}.</h2><p class="muted">A patient coordinator will review your details and contact you by email or WhatsApp to arrange your consultation.</p><p class="muted">Want to talk sooner? Message us on WhatsApp.</p>${copyLine(WA_TXT,"WhatsApp number")}<div class="btn-row"><a class="btn btn-ghost" href="${WA}" target="_blank" rel="noopener">Open WhatsApp ↗</a><a class="btn btn-ghost" href="#journey">See your journey</a></div></div>`;
+    window.scrollTo({top:0,behavior:"smooth"});
+  });
+}
+render();
+</script>
+</body>
+</html>
